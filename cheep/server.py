@@ -46,7 +46,7 @@ async def count_down(device: Device):
     while passed_time := await device_alert(passed_time, 5):
         pass
     print(
-        f"f{device.name} closed on {datetime.now().strftime('%Y %H:%M')},"
+        f"{device.name} closed on {datetime.now().strftime('%Y %H:%M')},"
         f"{datetime.now() - started_on}"
     )
 
