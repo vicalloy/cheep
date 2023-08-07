@@ -7,7 +7,12 @@ from cheep.utils import speak, turn_off_plug
 
 async def turn_off_plug_if_needed(passed_time: int, device: Device) -> bool:
     now = datetime.now()
-    if device != Device.WII_U or passed_time <= 25 or now.hour >= 19 or now.weekday() >= 5:
+    if (
+        device != Device.WII_U
+        or passed_time <= 25
+        or now.hour >= 19
+        or now.weekday() >= 5
+    ):
         return False
     await speak("将在2分钟后关闭插座")
     await asyncio.sleep(2 * 60)
