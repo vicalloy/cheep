@@ -38,7 +38,7 @@ async def device_alert(passed_time: int, waiting_time: int) -> int:
 async def count_down(device: Device, latest_tv_watch_time: datetime) -> timedelta:
     def end():
         print(
-            f"{device.name} closed on {datetime.now().strftime('%Y %H:%M')},"
+            f"{device.name} closed on {datetime.now().strftime('%Y-%m-%d %H:%M')},"
             f"{datetime.now() - started_on}"
         )
         return datetime.now() - started_on
@@ -52,7 +52,7 @@ async def count_down(device: Device, latest_tv_watch_time: datetime) -> timedelt
 
     await speak(f"{device.value}开了")
     started_on = datetime.now()
-    print(f"{device.name} opened on {started_on.strftime('%Y %H:%M')}")
+    print(f"{device.name} opened on {started_on.strftime('%Y-%m-%d %H:%M')}")
     passed_time = 0
     if (passed_time := await device_alert(passed_time, 15)) == 0:
         return end()
