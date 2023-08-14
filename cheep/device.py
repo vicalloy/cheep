@@ -11,8 +11,8 @@ class Device(str, Enum):
 
 async def get_on_device() -> Union[Device, None]:
     w = await get_plug_w()
-    if w > 130:
+    if w > 120:
         return Device.WII_U
-    if w > 100:
+    if w > 90:
         return Device.TV
     return None
