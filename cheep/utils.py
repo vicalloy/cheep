@@ -26,7 +26,7 @@ async def get_plug_w() -> int:
 async def turn_off_plug():
     did = os.environ.get("PLUG_DID")
     assert did is not None
-    await exec_cmd(did, "2-1=#false")
+    await exec_cmd(did, "2-1=false")
 
 
 async def _exec_cmd(did: str, args: str):
